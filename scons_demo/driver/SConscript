@@ -1,0 +1,16 @@
+from compiler import *
+
+sub_dirs = [
+        'sub_driver'
+        ]
+
+Import('env')
+src = Glob('*.c')
+obj = env.Object(src)
+src_obj = Glob('*.o')
+
+for d in sub_dirs:
+    obj = obj + SConscript(d + '/SConscript', 'env')
+
+Return('obj')
+

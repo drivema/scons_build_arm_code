@@ -1,0 +1,8 @@
+from compiler import *
+
+Import('env')
+
+src = Glob('*.c')
+obj = env.Object(src)
+Return('obj')
+
